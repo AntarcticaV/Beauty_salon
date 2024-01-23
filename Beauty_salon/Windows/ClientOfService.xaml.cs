@@ -34,8 +34,8 @@ namespace Beauty_salon.Windows
             foreach (var item in client.ClientService)
             {
                 var temp = new DataGridService();
-                item.Service.MainImagePath = item.Service.MainImagePath.Substring(1);
-                temp.Image = pathStoregeImage + item.Service.MainImagePath;
+                var MainImagePath = item.Service.MainImagePath.Substring(1);
+                temp.Image = pathStoregeImage + MainImagePath;
                 temp.Name = item.Service.Title;
                 temp.Price = "Цена: " + ((int)item.Service.Cost).ToString();
                 temp.Time = (item.Service.DurationInSeconds / 60).ToString()+ " мин";

@@ -1,6 +1,7 @@
 ﻿#nullable enable
 using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Data.Entity;
 using System.IO;
 using System.Linq;
@@ -165,6 +166,14 @@ namespace Beauty_salon.Windows
                         }
 
                         
+                    }
+
+                    foreach (var tag in tags)
+                    {
+                        if (tempList.FirstOrDefault(i => i.Title == tag.Title) == null)
+                        {
+                            _client.Tag.Remove(tag);
+                        }
                     }
                     if (textBoxID.Visibility == Visibility.Hidden)
                     {
